@@ -1,0 +1,25 @@
+<% include ../partials/header %> 
+<% include ../partials/loginnav %>
+
+<div class="on-nav-rotate">
+
+    <div class="Page-Top">
+        <h1>EVENTS</h1>
+    </div>
+
+<% include ../partials/flashmsg %>
+
+<div id="events-grid">
+    <% events.forEach(function(event){ %>
+        <div class="event-card">
+            <img class="event-img" src="<%= event.poster %>">
+            <div class="event-name"><%= event.name %></div>
+            <button class="btn-primary-sm"><a href="/events/<%= event._id %>">More Info</a></button>
+        </div>
+    <% }); %>
+</div>
+
+
+</div>
+
+<% include ../partials/footer %>

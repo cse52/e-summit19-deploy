@@ -1,0 +1,35 @@
+{
+  "name": "e-summit19",
+  "version": "1.0.0",
+  "description": "NIT Srinagar Entrepreneurs Summit 2019",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cse52/e-summit19.git"
+  },
+  "author": "VIKAS KUMAR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cse52/e-summit19/issues"
+  },
+  "homepage": "https://github.com/cse52/e-summit19#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "request": "^2.88.0"
+  }
+}

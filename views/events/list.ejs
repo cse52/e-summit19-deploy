@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+<% include ../partials/loginnav %>
+
+<div class="on-nav-rotate">
+
+    <div class="Page-Top">
+        <h1><%= event.name %> LIST</h1>
+    </div>
+
+        <div class="participant-list">
+            <table>
+                <tr>
+                    <th>Sr.No.</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                </tr>
+                <% for(var i=0; i < event.participants.length; i++) { %>
+                    <tr>
+                        <td><%= i %></td>
+                        <td><%= event.participants[i].username %></td>
+                        <td><%= event.participants[i].name %></td>
+                        <td><%= event.participants[i].email %></td>
+                        <td><%= event.participants[i].mobile %></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+
+</div>
+
+
+
+<% include ../partials/footer %>

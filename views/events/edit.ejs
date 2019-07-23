@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+        <h1 style="text-align: center; color: white;">Edit <%= event.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/events/<%=event._id%>?_method=PUT" method="POST">
+                <input style="display: block; color: white; font-size: 18px;" type="text" name="eventName" value="<%= event.eventName %>" placeholder="event name">
+                <input style="display: block; color: white; font-size: 18px;" type="text" name="eventHead" value="<%= event.head %>" placeholder="event head" required>
+                <input style="display: block; color: white; font-size: 18px;" type="text" name="eventHeadMobile" value="<%= event.headMobile %>" placeholder="event head mobile" required>
+                <input style="display: block; color: white; font-size: 18px;" type="text" name="poster" value="<%= event.poster %>" placeholder="event poster url">
+                <input style="display: block; color: white; font-size: 18px;" type="text" name="description" value="<%= event.description %>">
+                <button >Update!</button>
+            </form>
+        </div>
+    </div>
+<% include ../partials/footer %>
+

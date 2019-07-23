@@ -1,0 +1,10 @@
+
+    <ul class="uninav">
+        <li class="<%= typeof page !== 'undefined' && page === 'events' ? 'uninav-active' : '' %>"><a href="/events">Events</a></li>
+        <li class="<%= typeof page !== 'undefined' && page === 'landing' ? 'uninav-active' : '' %>"><a href="/">Home</a></li>
+        <% if(!currentUser){ %>
+            <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'uninav-active' : '' %>"><a href="/login">Login</a></li>
+        <% } else { %>
+            <li class="uninav-logout"><a href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+        <% } %>
+    </ul>

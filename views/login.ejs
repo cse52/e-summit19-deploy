@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+<% include ./partials/loginnav %>
+
+<div class="on-nav-rotate">
+
+    <div class="Page-Top">
+        <h1>LOGIN</h1>
+    </div>
+
+<% include ./partials/flashmsg %>
+
+    <form action="/login" method="post" class="std-form" id="login-form" data-aos="fade-up" data-aos-duration="1000">
+        <div class="input email-input">
+            <div class="input-icon">
+                <span class="icon"><i class="fab fa-atlassian"></i></span>
+                <input type="email" name="username" placeholder="Email Address">
+            </div>
+        </div>
+        <div class="input password-input">
+            <div class="input-icon">
+                <span class="icon"><i class="fas fa-key"></i></span>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+        </div>
+        <button type="submit" class="btn-primary">Login<span><i class="fas fa-long-arrow-alt-right"></i></span></button>
+        <span class="contact-no">New Member?  <a href="/register" class="contact-no-highlight">Register</a></span>
+    </form>
+
+
+</div>
+    
+
+<% include ./partials/footer %>
+

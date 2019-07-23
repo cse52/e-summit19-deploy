@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+<% include ../partials/loginnav %>
+
+<div class="on-nav-rotate">
+
+    <div class="Page-Top">
+        <h1><%= event.name %></h1>
+    </div>
+
+    <div class="ind-event">
+        <div class="poster-participate">
+            <img src="<%= event.poster %>">
+            <% include ../partials/flashmsg %>
+            <form action="/events/<%= event._id %>/participate" method="post">
+                <button type="submit" class="btn-primary-sm">Participate</button>
+            </form>
+        </div>
+        <div class="event-summary">
+            <h6>Organizers</h6>
+            <div class="hr-div"></div>
+            <p>Organizing Head : <%= event.head %></p>
+            <p>Contact No : <%= event.headMobile %></p>
+    
+            <h6>Venue</h6>
+            <div class="hr-div"></div>
+            <p>PF-1 (CSE Dept)</p>
+    
+            <h6>Time </h6>
+            <div class="hr-div"></div>
+            <p>10:00 AM | 12th May 2019</p>
+    
+            <h6>Rules</h6>
+            <div class="hr-div"></div>
+            <p><%= event.description %></p>
+        </div>
+    </div>
+
+</div>
+
+
+
+<% include ../partials/footer %>
