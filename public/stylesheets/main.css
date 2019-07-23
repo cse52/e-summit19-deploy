@@ -1022,23 +1022,6 @@ select:-webkit-autofill:focus {
 	letter-spacing: 1px;
 }
 
-.footer .dev-by .heart {
-	text-align: center;
-	width: 25px;
-	display: inline-block;
-	color: red;
-	transform-origin: center;
-	font-size: 20px;
-
-	animation: .8s heart_beat ease-in-out infinite;
-}
-@keyframes heart_beat {
-	0% {transform: scale(1);}
-	25% {transform: scale(1.5);}
-	40%{transform: scale(1);}
-	60%{transform: scale(1.5);}
-	100%{transform: scale(1);}
-}
 .footer .dev-by .dev-name {
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -1255,9 +1238,6 @@ select:-webkit-autofill:focus {
 		font-size: 16px;
 	}
 	
-	.footer .dev-by .heart {
-		font-size: 16px;
-	}
 	.footer .dev-by .dev-name {
 		font-size: 16px;
 	}
