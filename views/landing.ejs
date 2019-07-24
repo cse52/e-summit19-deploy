@@ -12,9 +12,24 @@
 			</div>
 		</div>
 		
-		<div class="scroll_div">
-			<div class="mouse"></div>
+		<div id="countdown-div">
+			<div id="cd-live" data-aos="zoom-out-up" data-aos-duration="1000" data-aos-anchor-placement="top bottom">
+				<span> LIVE IN </span>
+			</div>
+			<div id="cd-time" data-aos="zoom-out-up" data-aos-duration="500" data-aos-delay="300" data-aos-anchor-placement="top bottom">
+				<ul>
+					<li><span id="cd-days">00</span></li>
+					<li><span id="cd-hrs">00</span></li>
+					<li><span id="cd-mins">00</span></li>
+					<li><span id="cd-secs">00</span></li>
+				</ul>
+			</div>
 		</div>
+		<div class="follow-us">
+			<a href="https://www.instagram.com/e_summit_nit_sgr/" class="insta" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+		</div>
+
 	</div>
 
 	<div class="go-to-top"><a href="#topid" class="scroll-links"><i class="fas fa-chevron-up"></i></a></div>
@@ -291,6 +306,34 @@
 			</div>
 		</div>
 	</div>
+
+
+<script type="text/javascript">
+	var countdownTarget = new Date("Sep 7, 2019 08:00:00").getTime();
+
+	// refresh every 1 sec
+	var countdownFxn = setInterval(function() {
+		var timeNow = new Date().getTime();
+		var remTime = countdownTarget - timeNow;
+
+		var days = Math.floor(remTime / (1000 * 60 * 60 * 24));
+		var hrs = Math.floor((remTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var mins = Math.floor((remTime % (1000 * 60 * 60)) / (1000 * 60));
+		var secs = Math.floor((remTime % (1000 * 60)) / 1000);
+
+		// output the result
+		document.getElementById("cd-days").innerHTML = ((days<10)?"0"+days:days) + " D";
+		document.getElementById("cd-hrs").innerHTML = ((hrs<10)?"0"+hrs:hrs)  + " H";
+		document.getElementById("cd-mins").innerHTML = ((mins<10)?"0"+mins:mins) + " M";
+		document.getElementById("cd-secs").innerHTML = ((secs<10)?"0"+secs:secs) + " S";
+
+		if(remTime < 0) {
+			clearInterval(countdownFxn);
+			document.getElementById("countdown-div").innerHTML = '<div id="cd-live-after" data-aos="zoom-out-up" data-aos-duration="1000" data-aos-anchor-placement="top bottom"><span> LIVE </span></div><div id="cd-time-after" data-aos="zoom-out-up" data-aos-duration="500" data-aos-delay="300" data-aos-anchor-placement="top bottom"><span> NOW </span></div>';
+		}
+	}, 1000);
+
+</script>
 
 
 <% include ./partials/footer %>

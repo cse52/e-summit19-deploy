@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai:400,700');
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Baskerville');
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,300|Karla|Rajdhani:700");
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,600');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
@@ -10,6 +8,7 @@ html, body {
 	background: #101010;
 	overflow-x: hidden;
 }
+
 a {
 	text-decoration: none;
 }
@@ -407,10 +406,10 @@ select:-webkit-autofill:focus {
 
 .nav-ham {
 	position: absolute;
-	height: 200px;
-	width: 200px;
-	left: -90px;
-	top: -100px;
+	height: 160px;
+	width: 160px;
+	left: -80px;
+	top: -90px;
 	border-radius: 50%;
 	background: #ff4b5a;
 	cursor: pointer;
@@ -431,16 +430,16 @@ select:-webkit-autofill:focus {
 }
 #open-nav-icon {
 	position: relative;
-	left: 60%;
-	top: 60%;
+	left: 63%;
+	top: 62%;
 	font-size: 28px;
 	color: white;
 }
 #close-nav-icon {
 	position: relative;
-	left: 10%;
-	top: 58%;
-	font-size: 38px;
+	left: 3%;
+	top: 62%;
+	font-size: 35px;
 	color: white;
 }
 
@@ -569,50 +568,102 @@ select:-webkit-autofill:focus {
 	background: white;
 }
 
-.scroll_div {
-	position: absolute;
-	left: 50%;
-	top: 90%;
-	transform: translate(-50%,-90%);
-}
-.mouse {
-	height: 80px;
-	width: 50px;
-	border: 3px solid #ff4b5a;
-	border-radius: 50px;
-}
-.mouse::before{
-	position: absolute;
-	content: '';
-	left: 50%;
-	top: 80%;
-	width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	transform: translate(-50%,-30%);
-	color: #ff4b5a;
-	background: #ff4b5a;
 
-	animation: mouse_scroll 2s infinite;
+#countdown-div {
+	width: 90vw;
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	letter-spacing: 2px;
+	opacity: 0.95;
+	left: 50%;
+	top: 83%;
+	transform: translate(-50%,-83%);
 }
-@keyframes mouse_scroll {
-	from {
-		top: 80%;
-		opacity: 1;
-	}
-	to {
-		top: 20%;
-		opacity: 0;
-	}
-} 
+
+#cd-live {
+	padding: 11px 15px;
+	background: #ff4b5a;
+	transform: skewX(-7deg);
+	text-align: center;
+	border-bottom-left-radius: 7px;
+}
+#cd-live > span {
+	position: relative;
+	color: white;
+	font-size: calc(10px + .9vw);
+	font-family: 'Rajdhani';
+}
+#cd-live-after {
+	font-size: calc(12px + .9vw);
+	padding: calc(5px + .2vw) calc(15px + 4vw);
+	color: white;
+	background: #ff4b5a;
+	font-family: 'Rajdhani';
+	border-top-left-radius: 5px;
+	transform: skewX(-7deg);
+}
+#cd-time-after {
+	font-size: calc(12px + .9vw);
+	padding: calc(5px + .2vw) calc(15px + 4vw);
+	color: white;
+	font-family: 'Rajdhani';
+	border: 2px solid #ff4b5a;
+	border-left: none;
+	border-bottom-right-radius: 5px;
+	transform: skewX(-7deg);
+}
+
+#cd-time ul {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 9px;
+	margin: 0;
+	list-style: none;
+	justify-content: space-around;
+	border: 2px solid #ff4b5a;
+	border-left: none;
+	border-top-right-radius: 7px;
+	transform: skewX(-7deg);
+}
+#cd-time ul li {
+	margin: 0 1.4vw;
+	text-align: center;
+	font-family: 'Rajdhani';
+	font-size: calc(10px + .9vw);
+	color: white;
+}
+#cd-secs {
+	font-variant-numeric: tabular-nums;
+}
+
+.follow-us {
+	position: absolute;
+	left: 50%;
+	bottom: 2%;
+	transform: translate(-50%,2%);
+}
+.follow-us a {
+	margin: 0 calc(10px + .7vw);
+	font-size: 30px;
+	color: white;
+	transition: .5s;
+}
+.follow-us .insta:hover {
+	color: #fe4164;
+}
+.follow-us .yt:hover {
+	color: #c4302b;
+}
 
 .go-to-top {
 	position: fixed;
-	left: 96%;
-	top: 95%;
-	transform: translate(-96%,-95%);
-	height: 65px;
-	width: 65px;
+	right: 4%;
+	bottom: 5%;
+	transform: translate(4%,5%);
+	height: 50px;
+	width: 50px;
 	text-align: center;
 	background: #ff4b5a;
 	color: white;
@@ -639,7 +690,7 @@ select:-webkit-autofill:focus {
 	animation: vertical_oscillation 2s linear infinite;
 }
 @keyframes vertical_oscillation {
-	0%{transform: translateY(20px); opacity: 0;}
+	0%{transform: translateY(18px); opacity: 0;}
 	50%{transform: translateY(0px); opacity: 1;}
 	100%{transform: translateY(-20px); opacity: 0;}
 }
@@ -1102,16 +1153,16 @@ select:-webkit-autofill:focus {
 	}
 
 	.nav-ham {
-		height: 150px;
-		width: 150px;
-		left: -68px;
-		top: -75px;
+		height: 130px;
+		width: 130px;
+		left: -65px;
+		top: -71px;
 	}
 	#open-nav-icon {
 		font-size: 20px;
 	}
 	#close-nav-icon {
-		font-size: 28px;
+		font-size: 25px;
 	}
 	.side-nav .nav-links .nav-link-icon {
 		font-size: 22px;
@@ -1134,8 +1185,8 @@ select:-webkit-autofill:focus {
 		border: 2px solid #ff4b5a;
 	}
 	.go-to-top {
-		height: 50px;
-		width: 50px;
+		height: 40px;
+		width: 40px;
 	}
 	.go-to-top a {
 		font-size: 18px;
