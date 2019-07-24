@@ -20,6 +20,9 @@ var eventRoutes    = require("./routes/events"),
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 const databaseUri = process.env.MONGODB_URI || 'mongodb://localhost/e-summit19';
 mongoose.connect(databaseUri, { useNewUrlParser: true })

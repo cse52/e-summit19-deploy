@@ -3,7 +3,8 @@ var express = require("express"),
     passport = require("passport"),
     User = require("../models/user"),
     Credential = require("../models/credential"),
-    Query = require("../models/query");
+    Query = require("../models/query"),
+    Idgen = require("../models/idgen");
 
 //root route
 router.get("/", function(req, res){
@@ -21,26 +22,60 @@ router.post("/register", function(req, res){
     if(req.body.adminCode === process.env.ADMIN_CODE) {
       newUser.isAdmin = true;
     }
-    var newCredential = new Credential({
-        username: req.body.username, 
-        name: req.body.name, 
-        email: req.body.username,
-        mobile: req.body.mobile,
-        password: req.body.password
+    global.genrated_id = "NA";
+
+    Idgen.findOne({}, function(err, foundValue){
+        if(err){
+            console.log(err);
+            req.flash("error", "Error 100! Can't Register!");
+            res.redirect("/register");
+
+        } else if(foundValue === null) {
+            var newIdgen = {value : 1};
+            Idgen.create(newIdgen, function(err, newlyCreated){
+                if(err){
+                    console.log(err);
+                    req.flash("error", "Error 101! Can't Generate!");
+                    res.redirect("/register");
+                } else {
+                    global.genrated_id = "ESN-" + newlyCreated.value;
+                }
+            });
+        } else {
+            Idgen.findOneAndUpdate({}, {value : (foundValue.value+1)}, function(err, newlyUpdated){
+                if(err) {
+                    console.log(err);
+                    req.flash("error", "Error 102! Can't Generate!");
+                    res.redirect("/register");
+                } else {
+                    global.genrated_id = "ESN-" + newlyUpdated.value;
+                }
+            });
+        }
     });
+
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
             return res.render("register", {error: err.message});
         }
         passport.authenticate("local")(req, res, function(){
+            // create and new credential
+            var newCredential = new Credential({
+                username: req.body.username,
+                ID: global.genrated_id,
+                name: req.body.name, 
+                email: req.body.email,
+                mobile: req.body.mobile,
+                password: req.body.password
+            });
             Credential.create(newCredential, function(err, newlyCreated){
                 if(err){
                     console.log(err);
                 }
             });
-           req.flash("success", "Successfully Registered " + req.body.username);
-           res.redirect("/events"); 
+            req.flash("success", "Your ESummit ID : " + global.genrated_id);
+            res.redirect("/events"); 
         });
     });
 });

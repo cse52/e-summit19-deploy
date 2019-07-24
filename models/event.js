@@ -10,8 +10,8 @@ var eventSchema = new mongoose.Schema({
    participants: [
       {
          username: String,
+         ID: String,
          name: String,
-         email: String,
          mobile: String
       }
    ]
