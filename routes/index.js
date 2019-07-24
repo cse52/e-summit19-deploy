@@ -2,7 +2,8 @@ var express = require("express"),
     router  = express.Router(),
     passport = require("passport"),
     User = require("../models/user"),
-    Credential = require("../models/credential");
+    Credential = require("../models/credential"),
+    Query = require("../models/query");
 
 //root route
 router.get("/", function(req, res){
@@ -64,6 +65,22 @@ router.get("/logout", function(req, res){
    req.logout();
    req.flash("success", "Logged Out!");
    res.redirect("/");
+});
+
+// query route
+router.post("/query", function(req, res) {
+    var newQuery = {name: req.body.name, email: req.body.email, query: req.body.query};
+      // Create a new query and save to DB
+    Query.create(newQuery, function(err, newlyCreated){
+        if(err){
+              console.log(err);
+              req.flash('error', 'Not open to Queries for now!');
+        } else {
+              req.flash('success', 'Query Registered. You will be contacted soon..');
+              res.redirect("/");
+        }
+    });
+
 });
 
 

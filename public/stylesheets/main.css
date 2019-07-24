@@ -1300,7 +1300,20 @@ select:-webkit-autofill:focus {
 //////////////////////////FLASH MSG//////////////////////
 /////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////// */
-
+.alert {
+	width: calc(145px + 11vw);
+	position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: calc(5px + .6vw);
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 999;
+}
+.alert p {
+	width: 100%;
+	text-align: center;
+}
 
 
 

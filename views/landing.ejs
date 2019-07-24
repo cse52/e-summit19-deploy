@@ -34,6 +34,11 @@
 
 	<div class="go-to-top"><a href="#topid" class="scroll-links"><i class="fas fa-chevron-up"></i></a></div>
 
+
+
+<% include ./partials/flashmsg %>
+
+
 <!-- ABOUT-US PAGE -->
 	<div class="about-us" id="about-us">
 		<div class="svg-wrapper" data-aos="zoom-in" data-aos-duration="1000" data-aos-offset="200">
@@ -190,27 +195,27 @@
 <!-- CONTACT-US -->
 	<div class="contact-us" id="contact-us">
 		<img class="contact-svg" src="/asset/img/contact.svg" data-aos="zoom-in" data-aos-duration="1000" data-aos-offset="200">
-		<form class="std-form" data-aos="fade-up" data-aos-duration="1000">
+		<form method="POST" action="/query" class="std-form" data-aos="fade-up" data-aos-duration="1000">
 			<span class="form-title">Contact us</span>
 			<div class="input name-input">
 				<span class="input-label">Name</span>
 				<div class="input-icon">
 					<span class="icon"><i class="fas fa-user"></i></span>
-					<input type="text" name="name" placeholder="Enter your name">
+					<input type="text" name="name" placeholder="Enter your name" required>
 				</div>
 			</div>
 			<div class="input email-input">
 				<span class="input-label">Email</span>
 				<div class="input-icon">
 					<span class="icon"><i class="fas fa-envelope"></i></span>
-					<input type="email" name="email" placeholder="Enter your email address">
+					<input type="email" name="email" placeholder="Enter your email address" required>
 				</div>
 			</div>
 			<div class="input query-input">
 				<span class="input-label">Query</span>
 				<div class="input-icon">
 					<span class="icon"><i class="fas fa-question"></i></span>
-					<input type="email" name="email" placeholder="Your message here...">
+					<input type="text" name="query" placeholder="Your message here..." required>
 				</div>
 			</div>
 			<button class="btn-primary" type="submit">Submit<span><i class="fas fa-long-arrow-alt-right"></i></span></button>
@@ -240,19 +245,19 @@
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Management Team</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 					<div class="profile-card">
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Management Team</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 					<div class="profile-card">
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Management Team</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 				</div>
 				<div class="teams">
@@ -260,7 +265,7 @@
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">VIKAS KUMAR</div>
 						<div class="profile-designation">Web Developer</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="https://www.linkedin.com/in/vikas8nitsri" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 				</div>
 				<div class="teams">
@@ -268,19 +273,19 @@
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Content Team</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 					<div class="profile-card">
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Content Team</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 					<div class="profile-card">
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Content Team</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 				</div>
 				<div class="teams">
@@ -288,19 +293,19 @@
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Media & Publicity</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 					<div class="profile-card">
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Media & Publicity</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 					<div class="profile-card">
 						<img class="profile-img" src="/asset/img/avatar.png">
 						<div class="profile-name">JOHN KORPERS</div>
 						<div class="profile-designation">Media & Publicity</div>
-						<a class="profile-link" href="#"><div><i class="fab fa-linkedin-in"></i></div></a>
+						<a class="profile-link" href="#" target="_blank"><div><i class="fab fa-linkedin-in"></i></div></a>
 					</div>
 				</div>
 			</div>
