@@ -408,8 +408,8 @@ select:-webkit-autofill:focus {
 	position: absolute;
 	height: 160px;
 	width: 160px;
-	left: -80px;
-	top: -90px;
+	left: -74px;
+	top: -85px;
 	border-radius: 50%;
 	background: #ff4b5a;
 	cursor: pointer;
@@ -430,15 +430,15 @@ select:-webkit-autofill:focus {
 }
 #open-nav-icon {
 	position: relative;
-	left: 63%;
-	top: 62%;
-	font-size: 28px;
+	left: 62%;
+	top: 60%;
+	font-size: 25px;
 	color: white;
 }
 #close-nav-icon {
 	position: relative;
 	left: 3%;
-	top: 62%;
+	top: 60%;
 	font-size: 35px;
 	color: white;
 }
