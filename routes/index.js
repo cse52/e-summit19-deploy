@@ -48,7 +48,7 @@ router.post("/register", function(req, res){
                     req.flash("error", "Error 102! Can't Generate!");
                     res.redirect("/register");
                 } else {
-                    global.genrated_id = "ESN-" + newlyUpdated.value;
+                    global.genrated_id = "ESN-" + (newlyUpdated.value+1);
                 }
             });
         }
