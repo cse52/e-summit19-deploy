@@ -76,6 +76,7 @@ router.get("/:id", function(req, res){
     });
 });
 
+// Create Participation
 router.post("/:id/participate", isLoggedIn, function(req, res){
     //lookup event using ID
     Event.findById(req.params.id, function(err, event){
@@ -90,8 +91,8 @@ router.post("/:id/participate", isLoggedIn, function(req, res){
                     // console.log(foundCredential);
                     var participantCredential = {
                         username: foundCredential.username,
+                        ID : foundCredential.ID,
                         name: foundCredential.name,
-                        email: foundCredential.email,
                         mobile: foundCredential.mobile
                     }
                     // console.log(participantCredential);
@@ -119,7 +120,7 @@ router.post("/:id/participate", isLoggedIn, function(req, res){
     });
 });
 
-
+// LIST : Show Event Participation List
 router.get("/:id/list", function(req, res){
     //find the event with provided ID
     Event.findById(req.params.id).exec(function(err, foundEvent){

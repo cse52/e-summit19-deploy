@@ -11,17 +11,17 @@
             <table>
                 <tr>
                     <th>Sr.No.</th>
+                    <th>User</th>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Email</th>
                     <th>Mobile</th>
                 </tr>
                 <% for(var i=0; i < event.participants.length; i++) { %>
                     <tr>
                         <td><%= i %></td>
                         <td><%= event.participants[i].username %></td>
+                        <td><%= event.participants[i].ID %></td>
                         <td><%= event.participants[i].name %></td>
-                        <td><%= event.participants[i].email %></td>
                         <td><%= event.participants[i].mobile %></td>
                     </tr>
                 <% } %>

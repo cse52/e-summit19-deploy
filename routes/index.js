@@ -86,13 +86,36 @@ router.get("/login", function(req, res){
 });
 
 //handling login logic
-router.post("/login", passport.authenticate("local", 
-    {
-        successRedirect: "/events",
-        failureRedirect: "/login",
-        failureFlash: true,
-        successFlash: 'Welcome to E-summit!'
-    }), function(req, res){
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { 
+        req.flash("error", "Error LP01 : Unable to Login");
+        return next(err); 
+    }
+    if (!user) { 
+        req.flash("error", "Password or username is incorrect");
+        return res.redirect('/login'); 
+    }
+    req.logIn(user, function(err) {
+      if (err) { 
+        req.flash("error", "Error LP02 : Unable to Login");
+        return next(err);
+      } else {
+        Credential.findOne({username: req.body.username}, function(err, foundCredential){
+            if (err) {
+                console.log(err);
+                req.flash("error", "Error LP03 : Unable to Login");
+                res.redirect('/login');
+            } else {
+                req.flash("success", "Welcome Back "+foundCredential.ID);
+                return res.redirect('/events');
+            }
+        });
+
+      }
+
+    });
+  })(req, res, next);
 });
 
 // logout route
