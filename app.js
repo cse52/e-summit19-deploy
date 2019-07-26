@@ -11,6 +11,10 @@ var express = require("express"),
 	// seedDB      = require("./seeds"),
     methodOverride = require("method-override");
 
+
+// set ApiKey for sgMail
+
+
 // configure dotenv
 require('dotenv').load();
 
