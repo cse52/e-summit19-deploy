@@ -16,7 +16,8 @@ require('dotenv').load();
 
 //requiring routes
 var eventRoutes    = require("./routes/events"),
-    indexRoutes      = require("./routes/index");
+    indexRoutes    = require("./routes/index"),
+    adminRoutes    = require("./routes/admin");
 
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
@@ -61,6 +62,7 @@ app.use(function(req, res, next){
 
 app.use("/", indexRoutes);
 app.use("/events", eventRoutes);
+app.use("/", adminRoutes);
 
 app.listen(process.env.PORT || 80, function(){
    console.log("The E-summit'19 Server Has Started! " + process.env.PORT);

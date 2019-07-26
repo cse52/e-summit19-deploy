@@ -19,9 +19,6 @@ router.get("/register", function(req, res){
 //handle sign up logic
 router.post("/register", function(req, res){
     var newUser = new User({username: req.body.username});
-    if(req.body.adminCode === process.env.ADMIN_CODE) {
-      newUser.isAdmin = true;
-    }
     global.genrated_id = "NA";
 
     Idgen.findOne({}, function(err, foundValue){

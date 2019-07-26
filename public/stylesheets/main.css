@@ -1437,6 +1437,7 @@ select:-webkit-autofill:focus {
 	justify-content: center;
 }
 .event-summary p {
+	display: list-item;
 	margin: 0;
 	color: white;
 	font-size: 1.1em;

@@ -138,7 +138,7 @@ router.get("/:id/list", function(req, res){
  // EDIT - shows edit form for a event
 router.get("/:id/edit", isLoggedIn, isAdmin, function(req, res){
     //render edit template with that event
-    res.render("event/edit", {event: req.event});
+    res.render("events/edit", {event: req.event});
 });
 
 // PUT - updates event in the database
