@@ -21,44 +21,47 @@ router.get("/register", function(req, res){
 
 //handle sign up logic
 router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username.toLowerCase()});
-    global.generated_id = "NA";
-
-    Idgen.findOne({}, function(err, foundValue){
-        if(err){
-            console.log(err);
-            req.flash("error", "Error 100! Can't Register!");
-            res.redirect("/register");
-
-        } else if(foundValue === null) {
-            var newIdgen = {value : 1};
-            Idgen.create(newIdgen, function(err, newlyCreated){
-                if(err){
-                    console.log(err);
-                    req.flash("error", "Error 101! Can't Generate!");
-                    res.redirect("/register");
-                } else {
-                    global.generated_id = "ESN-" + newlyCreated.value;
-                }
-            });
-        } else {
-            Idgen.findOneAndUpdate({}, {value : (foundValue.value+1)}, function(err, newlyUpdated){
-                if(err) {
-                    console.log(err);
-                    req.flash("error", "Error 102! Can't Generate!");
-                    res.redirect("/register");
-                } else {
-                    global.generated_id = "ESN-" + (newlyUpdated.value+1);
-                }
-            });
-        }
-    });
-
+    req.body.username = req.body.username.toLowerCase();
+    var newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
             return res.render("register", {error: err.message});
         }
+
+        // generate ESN id
+        global.generated_id = "NA";
+        Idgen.findOne({}, function(err, foundValue){
+            if(err){
+                console.log(err);
+                req.flash("error", "Error 100! Can't Register!");
+                res.redirect("/register");
+
+            } else if(foundValue === null) {
+                var newIdgen = {value : 1};
+                Idgen.create(newIdgen, function(err, newlyCreated){
+                    if(err){
+                        console.log(err);
+                        req.flash("error", "Error 101! Can't Generate!");
+                        res.redirect("/register");
+                    } else {
+                        global.generated_id = "ESN-" + newlyCreated.value;
+                    }
+                });
+            } else {
+                Idgen.findOneAndUpdate({}, {value : (foundValue.value+1)}, function(err, newlyUpdated){
+                    if(err) {
+                        console.log(err);
+                        req.flash("error", "Error 102! Can't Generate!");
+                        res.redirect("/register");
+                    } else {
+                        global.generated_id = "ESN-" + (newlyUpdated.value+1);
+                    }
+                });
+            }
+        });
+
+
         // send confirmation mail with gmail, password & ESN ID
         const email_msg = {
             to: req.body.username.toString(),
@@ -73,6 +76,7 @@ router.post("/register", function(req, res){
             }
         });
 
+        // authenticate registered user
         passport.authenticate("local")(req, res, function(){
             // create and new credential
             var newCredential = new Credential({
@@ -83,13 +87,16 @@ router.post("/register", function(req, res){
                 mobile: req.body.mobile,
                 password: req.body.password
             });
-
             // save credentials to DB
             Credential.create(newCredential, function(err, newlyCreated){
                 if(err){
                     console.log(err);
+                    req.flash("error", "Code RP04: Problem with account! Contact Admin");
+                    req.logout();
+                    return res.redirect('/');
                 }
             });
+
             req.flash("success", "Your ESummit ID : " + global.generated_id);
             res.redirect("/events"); 
         });
@@ -104,7 +111,7 @@ router.get("/login", function(req, res){
 //handling login logic
 router.post('/login', function(req, res, next) {
     req.body.username = req.body.username.toLowerCase();
-  passport.authenticate('local', function(err, user, info) {
+    passport.authenticate('local', function(err, user, info) {
     if (err) { 
         req.flash("error", "Code LP01 : Unable to Login");
         return next(err); 
@@ -123,7 +130,7 @@ router.post('/login', function(req, res, next) {
             if (err) {
                 console.log(err);
                 req.flash("error", "Code LP03: Unable to Login");
-                res.redirect('/login');
+                return res.redirect('/login');
             } else if(foundCredential === null) {
                 req.flash("error", "Code LP04: Problem with account! Contact Admin");
                 req.logout();
@@ -137,7 +144,7 @@ router.post('/login', function(req, res, next) {
       }
 
     });
-  })(req, res, next);
+    })(req, res, next);
 });
 
 // logout route
