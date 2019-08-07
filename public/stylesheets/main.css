@@ -1192,7 +1192,7 @@ select:-webkit-autofill:focus {
 	border-radius: 10px;
 	transition: all .3s;
 }
-#events-grid .event-card .event-img{
+#events-grid .event-card .event-thumbnail{
 	margin-bottom: 15px;
 	width: 100px;
 	height: 100px;

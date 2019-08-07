@@ -2,9 +2,10 @@
     <h1 style="text-align: center; color: white;">Create a New Event</h1>
     <div style="width: 30%; margin: 25px auto;">
         <form action="/events" method="POST">
-            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="name" placeholder="Event Name">
-            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="head" placeholder="Event Head">
-            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="headMobile" placeholder="Event Head Mobile">
+            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="name" placeholder="Event Name" required>
+            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="head" placeholder="Event Head" required>
+            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="headMobile" placeholder="Event Head Mobile" required>
+            <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="thumbnail" placeholder="event thumbnail url" required>
             <input style="margin: 20px; display: block; color: white; font-size: 18px;" type="text" name="poster" placeholder="event poster url" required>
             <textarea style="margin: 20px; width: 200px; height: 300px; display: block; color: white; font-size: 18px; color: white; background: black;" name="description" placeholder="Event description"></textarea>
             <button type="submit">Create Event</button>

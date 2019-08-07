@@ -43,9 +43,10 @@ router.post("/", isLoggedIn, isAdmin, function(req, res){
     var name = req.body.name;
     var head = req.body.head;
     var headMobile = req.body.headMobile;
+    var thumbnail = req.body.thumbnail;
     var poster = req.body.poster;
     var description = req.body.description;
-    var newEvent = {name: name, head: head, headMobile: headMobile, poster: poster, description: description};
+    var newEvent = {name: name, head: head, headMobile: headMobile, thumbnail: thumbnail, poster: poster, description: description};
       // Create a new event and save to DB
     Event.create(newEvent, function(err, newlyCreated){
         if(err){
