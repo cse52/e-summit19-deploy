@@ -60,34 +60,39 @@
 </div> -->
 <!-- POSTLOADER -->	
 <div id="postloader">
-	<div class="nav-ham" onclick="openCloseNav()">
-		<i id="open-nav-icon" class="fas fa-bars"></i>
-		<i id="close-nav-icon" class="fas fa-times"></i>
-	</div>
-	<div class="side-nav">
-		<a href="#about-us" class="nav-links link1">
-			<span class="nav-link-icon"><i class="fas fa-info"></i></span>
-			<span class="nav-link-title">About</span>
-		</a>
-		<a href="#speakers" class="nav-links link2">
-			<span class="nav-link-icon"><i class="fas fa-headphones"></i></span>
-			<span class="nav-link-title">Speakers</span>
-		</a>
-		<a href="#timeline" class="nav-links link3">
-			<span class="nav-link-icon"><i class="fas fa-clock"></i></span>
-			<span class="nav-link-title">Timeline</span>
-		</a>
-		<a href="#sponsors" class="nav-links link4">
-			<span class="nav-link-icon"><i class="fas fa-coins"></i></span>
-			<span class="nav-link-title">Sponsors</span>
-		</a>
-		<a href="#our-team" class="nav-links link5">
-			<span class="nav-link-icon"><i class="fas fa-users"></i></span>
-			<span class="nav-link-title">Team</span>
-		</a>
-		<a href="#contact-us" class="nav-links link6">
-			<span class="nav-link-icon"><i class="fas fa-phone-volume"></i></span>
-			<span class="nav-link-title">Contact</span>
-		</a>
-	</div>
+	<% if(typeof page !== 'undefined' && page === 'landing'){ %>
+    	<div class="nav-ham" onclick="openCloseNav()">
+			<i id="open-nav-icon" class="fas fa-bars"></i>
+			<i id="close-nav-icon" class="fas fa-times"></i>
+		</div>
+		<div class="side-nav">
+			<a href="#about-us" class="nav-links link1">
+				<span class="nav-link-icon"><i class="fas fa-info"></i></span>
+				<span class="nav-link-title">About</span>
+			</a>
+			<a href="#speakers" class="nav-links link2">
+				<span class="nav-link-icon"><i class="fas fa-headphones"></i></span>
+				<span class="nav-link-title">Speakers</span>
+			</a>
+			<a href="#timeline" class="nav-links link3">
+				<span class="nav-link-icon"><i class="fas fa-clock"></i></span>
+				<span class="nav-link-title">Timeline</span>
+			</a>
+			<a href="#sponsors" class="nav-links link4">
+				<span class="nav-link-icon"><i class="fas fa-coins"></i></span>
+				<span class="nav-link-title">Sponsors</span>
+			</a>
+			<a href="#our-team" class="nav-links link5">
+				<span class="nav-link-icon"><i class="fas fa-users"></i></span>
+				<span class="nav-link-title">Team</span>
+			</a>
+			<a href="#contact-us" class="nav-links link6">
+				<span class="nav-link-icon"><i class="fas fa-phone-volume"></i></span>
+				<span class="nav-link-title">Contact</span>
+			</a>
+		</div>
+
+    <% } else { %>
+		<a class="logo-img" href="/" style="color: white, font-size: 30px;"><img src="/asset/img/logo-img.png"></a>
+    <% } %>
   

@@ -59,7 +59,7 @@ router.post("/", isLoggedIn, isAdmin, function(req, res){
 
 //NEW - show form to create new event
 router.get("/new", isLoggedIn, isAdmin, function(req, res){
-    res.render("events/new"); 
+    res.render("events/new", {page: 'newevent'}); 
 });
 
 // SHOW - shows more info about one event
@@ -72,7 +72,7 @@ router.get("/:id", function(req, res){
             return res.redirect('/events');
         }
         //render show template with that event
-        res.render("events/show", {event: foundEvent});
+        res.render("events/show", {event: foundEvent, page: 'showevent'});
     });
 });
 
@@ -131,14 +131,14 @@ router.get("/:id/list", function(req, res){
         }
         //render show template with that event
         // console.log(foundEvent);
-        res.render("events/list", {event: foundEvent});
+        res.render("events/list", {event: foundEvent, page: 'listevent'});
     });
 });
 
  // EDIT - shows edit form for a event
 router.get("/:id/edit", isLoggedIn, isAdmin, function(req, res){
     //render edit template with that event
-    res.render("events/edit", {event: req.event});
+    res.render("events/edit", {event: req.event, page: 'editevent'});
 });
 
 // PUT - updates event in the database

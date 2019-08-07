@@ -289,6 +289,7 @@ select:-webkit-autofill:focus {
 	background: #101010;
 	z-index: 2;
 }
+
 .hide {
 	width: 0;
 	height: 0;
@@ -402,6 +403,15 @@ select:-webkit-autofill:focus {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+}
+
+.logo-img img {
+	position: absolute;
+	z-index: 1;
+	height: calc(30px + 3vw);
+	width: calc(30px + 3vw);
+	top: 2%;
+	left: 2%;	
 }
 
 .nav-ham {

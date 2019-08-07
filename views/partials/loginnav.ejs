@@ -2,6 +2,7 @@
     <ul class="uninav">
         <li class="<%= typeof page !== 'undefined' && page === 'events' ? 'uninav-active' : '' %>"><a href="/events">Events</a></li>
         <li class="<%= typeof page !== 'undefined' && page === 'landing' ? 'uninav-active' : '' %>"><a href="/">Home</a></li>
+        
         <% if(!currentUser){ %>
             <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'uninav-active' : '' %>"><a href="/login">Login</a></li>
         <% } else { %>
