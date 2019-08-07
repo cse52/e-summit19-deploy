@@ -69,5 +69,5 @@ app.use("/events", eventRoutes);
 app.use("/", adminRoutes);
 
 app.listen(process.env.PORT || 80, function(){
-   console.log("The E-summit'19 Server Has Started! " + process.env.PORT);
+   console.log("The E-summit'19 Server Has Started @" + (process.env.PORT || 80));
 });
