@@ -6,6 +6,6 @@
         <% if(!currentUser){ %>
             <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'uninav-active' : '' %>"><a href="/login">Login</a></li>
         <% } else { %>
-            <li class="uninav-logout"><a href="/logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+            <li class="uninav-logout"><a href="/logout" title="Logout"> <i class="fas fa-unlink"></i></a></li>
         <% } %>
     </ul>
