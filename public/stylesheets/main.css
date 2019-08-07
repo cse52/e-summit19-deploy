@@ -17,6 +17,7 @@ ul {
 	list-style: none;
 }
 
+
 /*///////////////////////GLOBAL CLASSES//////////////////////////*/
 .uninav {
 	margin: 0;
@@ -979,7 +980,8 @@ select:-webkit-autofill:focus {
 
 /*/////////////////////////SPONSORS////////////////////////////*/
 .sponsors {
-	/*background: url(../asset/img/back1.jpg);*/
+	/*background: url(../asset/img/back1.png);*/
+	/*background-repeat: no-repeat;*/
 }
 .sponsors .au-head {
 	/*color: black;*/
@@ -1109,6 +1111,188 @@ select:-webkit-autofill:focus {
 }
 
 
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////FLASH MSG//////////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// */
+.alert {
+	width: calc(145px + 11vw);
+	position: fixed;
+    top: 80px;
+    right: 20px;
+    padding: calc(5px + .6vw);
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 999;
+}
+.alert p {
+	width: 100%;
+	text-align: center;
+}
+
+
+
+
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////REGISTER PAGE//////////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// */
+
+.Page-Top {
+	margin: 0;
+	height: 40vh;
+	background: url("/asset/img/10.jpg");
+	text-align: center;
+}
+.Page-Top h1 {
+	margin: 0;
+	font-family: "Raleway";
+	color: white;
+	font-size: calc(16px + 3vw);
+	text-align: center;
+	line-height: 40vh;
+	letter-spacing: 2vw;
+}
+#register-form {
+	width: 30%;
+}
+
+
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////LOGIN PAGE//////////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// */
+#login-form {
+	width: 25%;
+	margin: 6.5vw auto;
+}
+
+
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////EVENTS PAGE//////////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// */
+#events-grid {
+	padding: 20px 40px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+#events-grid .event-card {
+	margin: 30px 20px;
+	padding: 40px 20px 30px 20px;
+	width: 200px;
+	font-family: 'Open Sans';
+	text-align: center;
+	border: 1px solid #ff5a4b;
+	border-radius: 10px;
+	transition: all .3s;
+}
+#events-grid .event-card .event-img{
+	margin-bottom: 15px;
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 50%;
+	position: relative;
+	transition: all .5s;
+}
+#events-grid .event-card .event-name{
+	margin-bottom: 10px;
+	font-size: 22px;
+	font-weight: bold;
+	color: white;
+}
+
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////EVENT INFO PAGE//////////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// */
+.ind-event {
+	display: flex;
+	padding: 40px 20px;
+}
+.poster-participate {
+	width: 50%;
+}
+.poster-participate img {
+	display: block;
+	margin: 0 auto 7vw;
+	width: 70%;
+}
+.poster-participate .btn-primary-sm {
+	width: 200px;
+	display: flex;
+	justify-content: center;
+	margin: 20px auto;
+}
+.event-summary {
+	padding: 10px 4vw;
+	border: 2px solid #ff4b5a;
+	border-radius: 10px;
+	width: 50%;
+}
+.event-summary h6{
+	margin: 20px 0 5px;
+	color: #ff4b5a;
+	letter-spacing: 2px;
+	font-family: "Rajdhani";
+	font-size: 24px;
+	text-align: center;
+}
+.event-summary .hr-div {
+	margin: 0 auto 20px;
+	height: 1px;
+	background: #ff4b5a;
+	width: 40%;
+	justify-content: center;
+}
+.event-summary p {
+	display: list-item;
+	margin: 0;
+	color: white;
+	font-size: 1.1em;
+	font-family: "Open Sans";
+}
+
+
+/* /////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+//////////////////////////EVENT LIST PAGE//////////////////////
+/////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////// */
+.participant-list {
+	margin: 20px auto;
+	width: 90%;
+}
+.participant-list table {
+	width: 100%;
+	color: white;
+}
+
+th,td {
+	text-align: center;
+	font-size: calc(10px + .3vw);
+}
+
+tr > th {
+	text-transform: uppercase;
+	font-family: 'Raleway';
+}
+tr:nth-child(odd) {
+	background: #444;
+}
+
+
+
+
+
+
 
 
 
@@ -1119,7 +1303,6 @@ select:-webkit-autofill:focus {
 //////////////////////////MEDIA QUERIES//////////////////////
 /////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////// */
-
 
 
 @media screen and (max-width: 540px) {
@@ -1307,182 +1490,29 @@ select:-webkit-autofill:focus {
 	.footer .dev-by .dev-name {
 		font-size: 16px;
 	}
+
+	/* SHOW EVENT PAGE */
+	.ind-event {
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 30px 10px;
+	}
+	.poster-participate {
+		margin-bottom: 20px;
+		width: 90%;
+	}
+	.poster-participate img {
+		margin-bottom: 0;
+		width: 80%;
+	}
+	.poster-participate .btn-primary-sm {
+		margin: 10px auto;
+	}
+	.event-summary {
+		width: 90%;
+	}
+	.event-summary p {
+		list-style-position: inside !important;
+	}
+	
 } 
-
-
-/* /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-//////////////////////////FLASH MSG//////////////////////
-/////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////// */
-.alert {
-	width: calc(145px + 11vw);
-	position: fixed;
-    top: 80px;
-    right: 20px;
-    padding: calc(5px + .6vw);
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 999;
-}
-.alert p {
-	width: 100%;
-	text-align: center;
-}
-
-
-
-
-/* /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-//////////////////////////REGISTER PAGE//////////////////////
-/////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////// */
-
-.Page-Top {
-	margin: 0;
-	height: 40vh;
-	background: url("/asset/img/10.jpg");
-	text-align: center;
-}
-.Page-Top h1 {
-	margin: 0;
-	font-family: "Raleway";
-	color: white;
-	font-size: calc(16px + 3vw);
-	text-align: center;
-	line-height: 40vh;
-	letter-spacing: 2vw;
-}
-#register-form {
-	width: 30%;
-}
-
-
-/* /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-//////////////////////////REGISTER PAGE//////////////////////
-/////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////// */
-#login-form {
-	width: 25%;
-	margin: 6.5vw auto;
-}
-
-
-/* /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-//////////////////////////EVENTS PAGE//////////////////////
-/////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////// */
-#events-grid {
-	padding: 20px 40px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-#events-grid .event-card {
-	margin: 30px 20px;
-	padding: 40px 20px 30px 20px;
-	width: 200px;
-	font-family: 'Open Sans';
-	text-align: center;
-	border: 1px solid #ff5a4b;
-	border-radius: 10px;
-	transition: all .3s;
-}
-#events-grid .event-card .event-img{
-	margin-bottom: 15px;
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-	border-radius: 50%;
-	position: relative;
-	transition: all .5s;
-}
-#events-grid .event-card .event-name{
-	margin-bottom: 10px;
-	font-size: 22px;
-	font-weight: bold;
-	color: white;
-}
-
-/* /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-//////////////////////////EVENT INFO PAGE//////////////////////
-/////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////// */
-.ind-event {
-	display: flex;
-	padding: 40px 20px;
-}
-.poster-participate {
-	width: 50%;
-}
-.poster-participate img {
-	display: block;
-	margin: 0 auto 7vw;
-	width: 70%;
-}
-.poster-participate .btn-primary-sm {
-	width: 200px;
-	display: flex;
-	justify-content: center;
-	margin: 20px auto;
-}
-.event-summary {
-	padding: 10px 4vw;
-	border: 2px solid #ff4b5a;
-	border-radius: 10px;
-	width: 50%;
-}
-.event-summary h6{
-	margin: 20px 0 5px;
-	color: #ff4b5a;
-	letter-spacing: 2px;
-	font-family: "Rajdhani";
-	font-size: 24px;
-	text-align: center;
-}
-.event-summary .hr-div {
-	margin: 0 auto 20px;
-	height: 1px;
-	background: #ff4b5a;
-	width: 40%;
-	justify-content: center;
-}
-.event-summary p {
-	display: list-item;
-	margin: 0;
-	color: white;
-	font-size: 1.1em;
-	font-family: "Open Sans";
-}
-
-
-/* /////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-//////////////////////////EVENT LIST PAGE//////////////////////
-/////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////// */
-.participant-list {
-	margin: 20px auto;
-	width: 90%;
-}
-.participant-list table {
-	width: 100%;
-	color: white;
-}
-
-th,td {
-	text-align: center;
-	font-size: calc(10px + .3vw);
-}
-
-tr > th {
-	text-transform: uppercase;
-	font-family: 'Raleway';
-}
-tr:nth-child(odd) {
-	background: #444;
-}
