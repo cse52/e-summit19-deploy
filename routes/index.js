@@ -5,7 +5,10 @@ var express = require("express"),
     Credential = require("../models/credential"),
     Query = require("../models/query"),
     Idgen = require("../models/idgen"),
-    sgMail = require("@sendgrid/mail");
+    sgMail = require("@sendgrid/mail"),
+    middleware = require("../middleware");
+
+var { alreadyLoginRedirect } = middleware;
 
 sgMail.setApiKey('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');
 
@@ -104,7 +107,7 @@ router.post("/register", function(req, res){
 });
 
 //show login form
-router.get("/login", function(req, res){
+router.get("/login", alreadyLoginRedirect, function(req, res){
    res.render("login", {page: 'login'}); 
 });
 

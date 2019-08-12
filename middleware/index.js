@@ -1,11 +1,19 @@
 var Event = require('../models/event');
 module.exports = {
   isLoggedIn: function(req, res, next){
-      if(req.isAuthenticated()){
-          return next();
-      }
-      req.flash('error', 'You must be signed in to do that!');
-      res.redirect('/login');
+    if(req.isAuthenticated()){
+        return next();
+    }
+    req.flash('error', 'You must be signed in to do that!');
+    res.redirect('/login');
+  },
+  alreadyLoginRedirect: function(req, res, next){
+    if(req.isAuthenticated()){
+      req.flash('success', 'Already Logged In!');
+      res.redirect('/');
+    } else {
+      return next();
+    }
   },
   isAdmin: function(req, res, next) {
     if(req.user.isAdmin) {
@@ -16,6 +24,3 @@ module.exports = {
     }
   }
 }
-
-
-// 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

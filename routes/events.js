@@ -68,7 +68,7 @@ router.get("/:id", function(req, res){
     //find the event with provided ID
     Event.findById(req.params.id).exec(function(err, foundEvent){
         if(err || !foundEvent){
-            console.log(err);
+            // console.log(err);
             req.flash('error', 'Sorry, that event does not exist!');
             return res.redirect('/events');
         }
@@ -122,7 +122,7 @@ router.post("/:id/participate", isLoggedIn, function(req, res){
 });
 
 // LIST : Show Event Participation List
-router.get("/:id/list", function(req, res){
+router.get("/:id/list", isAdmin, function(req, res){
     //find the event with provided ID
     Event.findById(req.params.id).exec(function(err, foundEvent){
         if(err || !foundEvent){
@@ -134,39 +134,6 @@ router.get("/:id/list", function(req, res){
         // console.log(foundEvent);
         res.render("events/list", {event: foundEvent, page: 'listevent'});
     });
-});
-
- // EDIT - shows edit form for a event
-router.get("/:id/edit", isLoggedIn, isAdmin, function(req, res){
-    //render edit template with that event
-    res.render("events/edit", {event: req.event, page: 'editevent'});
-});
-
-// PUT - updates event in the database
-router.put("/:id", isLoggedIn, isAdmin, function(req, res){
-    Event.findByIdAndUpdate(req.params.id, {$set: newData}, function(err, event){
-        if(err){
-            req.flash("error", err.message);
-            res.redirect("back");
-        } else {
-            req.flash("success","Successfully Updated!");
-            res.redirect("/events/" + event._id);
-        }
-    });
-});
-  
-
-
-// DELETE - removes event and the database
-router.delete("/:id", isLoggedIn, isAdmin, function(req, res) {
-    req.event.remove(function(err) {
-        if(err) {
-            req.flash('error', err.message);
-            return res.redirect('/');
-        }
-        req.flash('error', 'event deleted!');
-        res.redirect('/events');
-      });
 });
 
 module.exports = router;
